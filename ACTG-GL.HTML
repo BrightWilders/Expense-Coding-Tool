@@ -51,6 +51,15 @@
       display: inline-block;
       margin-top: 6px;
     }
+    .note {
+      color: #c0392b;
+      font-weight: bold;
+      background-color: #fdecea;
+      padding: 6px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 6px;
+    }
   </style>
 </head>
 <body>
@@ -61,59 +70,64 @@
   </div>
 
   <script>
+    const reactiveNote = "If this is replacing an existing FF&E item, do NOT use this coding. Search for 'Replacement Item' instead.";
+
     const items = [
+      { "Item": "Replacement Item", "GLNumber": 8500, "GLName": "FF&E Expense", "Department": "Other (Income) & Expenses", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO (OW, KHE, HC, GEMMA)" },
+      { "Item": "Replacement Item", "GLNumber": 2705, "GLName": "FFE Reserves - Spend", "Department": "Balance Sheet", "Class": "BKW or CMI Units", "ItemFlag": "No", "Entity": "BTO (SH5 or CMI ONLY)" },
+
       { "Item": "AC units", "GLNumber": 9901, "GLName": "CAPEX", "Department": "Other (Income) & Expenses", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
       { "Item": "Air Mattress", "GLNumber": 7660, "GLName": "Guest Relations", "Department": "Property Management - Prop. Service G&A", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Bathroom exhaust fan", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "FM-HVAC", "Entity": "BTO" },
+      { "Item": "Bathroom exhaust fan", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "FM-HVAC", "Entity": "BTO", "Note": reactiveNote },
       { "Item": "Bed Mattress", "GLNumber": 9901, "GLName": "CAPEX", "Department": "Other (Income) & Expenses", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Blinds", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "BNB requirement", "GLNumber": 7660, "GLName": "Guest Relations", "Department": "Property Management - Prop. Service G&A", "Class": "CH 806.ALL Fleming", "ItemFlag": "F&B-Continental Breakfast", "Entity": "OW",  "Memo": "BNB requirement:" },
-      { "Item": "Bug Spray/Killer", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Ceiling Fan", "GLNumber": 7882, "GLName": "Reactive Supplies - Electrical", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Ceiling fan pull chain", "GLNumber": 7882, "GLName": "Reactive Supplies - Electrical", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Curtain Rods", "GLNumber": 7890, "GLName": "Reactive Supplies - Other", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Door Handle", "GLNumber": 7881, "GLName": "Reactive Supplies - Building", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Door Stopper", "GLNumber": 7881, "GLName": "Reactive Supplies - Building", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
+      { "Item": "Blinds", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "BNB requirement", "GLNumber": 7660, "GLName": "Guest Relations", "Department": "Property Management - Prop. Service G&A", "Class": "CH 806.ALL Fleming", "ItemFlag": "F&B-Continental Breakfast", "Entity": "OW", "Memo": "BNB requirement:" },
+      { "Item": "Bug Spray/Killer", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "Ceiling Fan", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "Ceiling fan pull chain", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "Curtain Rods", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "Door Handle", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "Door Stopper", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
       { "Item": "Enhanced amenity for guest experience (S&D)", "GLNumber": 7650, "GLName": "Guest Promotional Expense ", "Department": "Property Management - Prop. Service G&A", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Memo": "Guest Relations - Res #" },
       { "Item": "Grill", "GLNumber": 9901, "GLName": "CAPEX", "Department": "Other (Income) & Expenses", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
       { "Item": "Grill Tool Set", "GLNumber": 7706, "GLName": "Unit Supplies", "Department": "Property Management - Prop. Service G&A", "Class": "Unit Specific", "ItemFlag": "US-Exterior/Common Area", "Entity": "BTO" },
-      { "Item": "Outlet Covers", "GLNumber": 7882, "GLName": "Reactive Supplies - Electrical", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Propane Tanks", "GLNumber": 7890, "GLName": "Reactive Supplies - Other", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
+      { "Item": "Outlet Covers", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "Propane Tanks", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
       { "Item": "Remedial gifts (Issues-In leu of Refund in guesty)", "GLNumber": 4060, "GLName": "Resolutions Revenue (Expense)", "Department": "Market Ops - Core Operations", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO (Do not use if OW)", "Memo": "Guest Relations - Res #" },
-      { "Item": "Remedial gifts (Issues, small - GC to get coffee)", "GLNumber": 7660, "GLName": " Guest Relations", "Department": "Property Management - Prop. Service G&A", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Memo": "Guest Relations - Res #" },
+      { "Item": "Remedial gifts (Issues, small - GC to get coffee)", "GLNumber": 7660, "GLName": "Guest Relations", "Department": "Property Management - Prop. Service G&A", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Memo": "Guest Relations - Res #" },
       { "Item": "Remotes", "GLNumber": 7706, "GLName": "Unit Supplies", "Department": "Property Management", "Class": "Unit Specific", "ItemFlag": "Unit Miscellaneous Supplies", "Entity": "BTO" },
       { "Item": "Shower curtain", "GLNumber": 7706, "GLName": "Unit Supplies", "Department": "Property Management", "Class": "Unit Specific", "ItemFlag": "Unit Bathroom Supplies", "Entity": "BTO" },
-      { "Item": "Shower Head", "GLNumber": 7888, "GLName": "Reactive Supplies - Plumbing", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
+      { "Item": "Shower Head", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
       { "Item": "Sleeper Sofa Mattress", "GLNumber": 7706, "GLName": "Unit Supplies", "Department": "Property Management", "Class": "Unit Specific", "ItemFlag": "Unit Miscellaneous Supplies", "Entity": "BTO" },
-      { "Item": "Toilet handles / lever", "GLNumber": 7890, "GLName": "Reactive Supplies - Other", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Toilet Paper holder", "GLNumber": 7890, "GLName": "Reactive Supplies - Other", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Toilet Seat", "GLNumber": 7890, "GLName": "Reactive Supplies - Other", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Towel Bar", "GLNumber": 7890, "GLName": "Reactive Supplies - Other", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Towel Drying rack", "GLNumber": 7890, "GLName": "Reactive Supplies - Other", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "specialty appliance bulb (refrigerator)", "GLNumber": 7883, "GLName": "Reactive Supplies - Kitchen Equipment", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
+      { "Item": "Toilet handles / lever", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "Toilet Paper holder", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "Toilet Seat", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "Towel Bar", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "Towel Drying rack", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "specialty appliance bulb (refrigerator)", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
       { "Item": "Luggage Tags", "GLNumber": 1242, "GLName": "Accounts Receivable - Other", "Department": "Balance Sheet", "Class": "BKW COA - Common Area Reimb", "ItemFlag": "No", "Entity": "MC/SH5" },
       { "Item": "Photos", "GLNumber": 7589, "GLName": "Photography & Staging Expenses", "Department": "Sales & Marketing - Corp", "Class": "Unit Specific", "ItemFlag": "Photos - Reshoots", "Entity": "BTO" },
       { "Item": "Photos", "GLNumber": 7589, "GLName": "Photography & Staging Expenses", "Department": "Sales & Marketing - Corp", "Class": "Unit Specific", "ItemFlag": "Photos - Onboarding", "Entity": "MC" },
-      { "Item": "Toilet fill valve", "GLNumber": 7888, "GLName": "Reactive Supplies - Plumbing", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "SGD Handle", "GLNumber": 7881, "GLName": "Reactive Supplies - Building", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
-      { "Item": "Pool gate", "GLNumber": 7885, "GLName": "Reactive Supplies - Ground", "Department": "Maintenance - Landscaping", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO" },
+      { "Item": "Toilet fill valve", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "SGD Handle", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
+      { "Item": "Pool gate", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance - Landscaping", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "BTO", "Note": reactiveNote },
       { "Item": "HSK FM Supplies/Gas", "GLNumber": 7700, "GLName": "Housekeeping Operating Expense", "Department": "Housekeeping - Grounds / Housekeeping", "Class": "Unassigned Listing - Keys / BKW ALL", "ItemFlag": "No", "Entity": "MC" },
       { "Item": "BKW Enhanced amenity for guest experience (S&D)", "GLNumber": 7650, "GLName": "Guest Promotional Expense ", "Department": "Property Management - Prop. Service G&A", "Class": "BKW Unit Specific", "ItemFlag": "No", "Entity": "805", "Memo": "Guest Relations - Res #" },
       { "Item": "BKW Remedial gifts (Issues for unit specific)", "GLNumber": 4060, "GLName": "Resolutions Revenue (Expense)", "Department": "Market Ops - Core Operations", "Class": "BKW Unit Specific", "ItemFlag": "No", "Entity": "805.1", "Memo": "Guest Relations - Res #" },
-      { "Item": "BKW Remedial gifts (Issues not related to unit specific)", "GLNumber": 7660, "GLName": " Guest Relations", "Department": "Property Management - Prop. Service G&A", "Class": "BKW Unit Specific", "ItemFlag": "No", "Entity": "805", "Memo": "Guest Relations - Res #" },
+      { "Item": "BKW Remedial gifts (Issues not related to unit specific)", "GLNumber": 7660, "GLName": "Guest Relations", "Department": "Property Management - Prop. Service G&A", "Class": "BKW Unit Specific", "ItemFlag": "No", "Entity": "805", "Memo": "Guest Relations - Res #" },
       { "Item": "Breakfast for all hands", "GLNumber": 6995, "GLName": "Employee Relations", "Department": "Office & Admin", "Class": "Region Specific", "ItemFlag": "No", "Entity": "MC" },
       { "Item": "Meals for BW Teams or individual meals", "GLNumber": 7265, "GLName": "Meals & Entertainment", "Department": "Department specific", "Class": "Region Specific", "ItemFlag": "M&E meals", "Entity": "MC" },
       { "Item": "Whole team doing or celebrating", "GLNumber": 7212, "GLName": "Team Events", "Department": "Property Management - Prop. Service G&A", "Class": "Region Specific", "ItemFlag": "No", "Entity": "MC" },
-{ "Item": "HSK-MC (3rd Party)", "GLNumber": 7701, "GLName": "HSKP Service Charge", "Department": "Property Management - Prop. Service G&A > Housekeeping", "Class": "Unassigned Listing - CFL or Unassigned Listing - PH ", "ItemFlag": "No", "Entity": "MC","Memo": " Invoice # 000 : Housekeeping check out cleans  m/dd/yy-m/dd/yy" },
- { "Item": "Portable AC", "GLNumber": 7880, "GLName": "Facilities Management Operating Expense", "Department": "Maintenance - Facility Services", "Class": "Unassigned Listing - Keys/CFL", "ItemFlag": "STE-MC/Property", "Entity": "MC" },
- { "Item": "Provisions - 430 office", "GLNumber": 6995, "GLName": "Employee Relations", "Department": "Office & Admin", "Class": "430 Fleming - OF", "ItemFlag": "No", "Entity": "MC" },
- { "Item": "MC Refunds/Giftcards (HSK issue)", "GLNumber": 7001, "GLName": "Management Operating Concessions", "Department": "Property Management - Prop. Service G&A > Housekeeping", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "MC" },
- { "Item": "BKW Lobby plants", "GLNumber": 7660, "GLName": "Guest Relations", "Department": "Property Management - Prop. Service G&A", "Class": "BKW BLDING 7", "ItemFlag": "No", "Entity": "805" },
- { "Item": "Blank-up Covers", "GLNumber": 7881, "GLName": "Reactive Supplies - Building", "Department": "Maintenance", "Class": "BKW BLDING 7", "ItemFlag": "No", "Entity": "805" },
-{ "Item": "Red Tracker Gas", "GLNumber": 7261, "GLName": "Gas & Mileage", "Department": "Maintenance", "Class": "Unassigned Listing - Keys", "ItemFlag": "No", "Entity": "MC" },
- { "Item": "Luggage Cart Wheels", "GLNumber": 7890, "GLName": "Reactive Supplies - Other", "Department": "Maintenance", "Class": "BKW BLDING 7", "ItemFlag": "No", "Entity": "805" },
- { "Item": "Shuttle 21 & 23", "GLNumber": 7856, "GLName": "Outside Services - Auto Maintenance", "Department": "Shuttle Department", "Class": "BKW ALL", "ItemFlag": "No", "Entity": "805" },
-{ "Item": "Shuttle 22", "GLNumber": 1242, "GLName": "Accounts Receivable - Other", "Department": "Balance Sheet", "Class": "BKW COA - Common Area Reimb", "ItemFlag": "No", "Entity": "MC/SH5" },
+      { "Item": "HSK-MC (3rd Party)", "GLNumber": 7701, "GLName": "HSKP Service Charge", "Department": "Property Management - Prop. Service G&A > Housekeeping", "Class": "Unassigned Listing - CFL or Unassigned Listing - PH", "ItemFlag": "No", "Entity": "MC", "Memo": "Invoice # 000 : Housekeeping check out cleans m/dd/yy-m/dd/yy" },
+      { "Item": "Portable AC", "GLNumber": 7880, "GLName": "Facilities Management Operating Expense", "Department": "Maintenance - Facility Services", "Class": "Unassigned Listing - Keys/CFL", "ItemFlag": "STE-MC/Property", "Entity": "MC" },
+      { "Item": "Provisions - 430 office", "GLNumber": 6995, "GLName": "Employee Relations", "Department": "Office & Admin", "Class": "430 Fleming - OF", "ItemFlag": "No", "Entity": "MC" },
+      { "Item": "MC Refunds/Giftcards (HSK issue)", "GLNumber": 7001, "GLName": "Management Operating Concessions", "Department": "Property Management - Prop. Service G&A > Housekeeping", "Class": "Unit Specific", "ItemFlag": "No", "Entity": "MC" },
+      { "Item": "BKW Lobby plants", "GLNumber": 7660, "GLName": "Guest Relations", "Department": "Property Management - Prop. Service G&A", "Class": "BKW BLDING 7", "ItemFlag": "No", "Entity": "805" },
+      { "Item": "Blank-up Covers", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "BKW BLDING 7", "ItemFlag": "No", "Entity": "805", "Note": reactiveNote },
+      { "Item": "Red Tracker Gas", "GLNumber": 7261, "GLName": "Gas & Mileage", "Department": "Maintenance", "Class": "Unassigned Listing - Keys", "ItemFlag": "No", "Entity": "MC" },
+      { "Item": "Luggage Cart Wheels", "GLNumber": 7881, "GLName": "Reactive Supplies", "Department": "Maintenance", "Class": "BKW BLDING 7", "ItemFlag": "No", "Entity": "805", "Note": reactiveNote },
+      { "Item": "Shuttle 21 & 23", "GLNumber": 7856, "GLName": "Outside Services - Auto Maintenance", "Department": "Shuttle Department", "Class": "BKW ALL", "ItemFlag": "No", "Entity": "805" },
+      { "Item": "Shuttle 22", "GLNumber": 1242, "GLName": "Accounts Receivable - Other", "Department": "Balance Sheet", "Class": "BKW COA - Common Area Reimb", "ItemFlag": "No", "Entity": "MC/SH5" },
       { "Item": "Meals with prospects", "GLNumber": 7265, "GLName": "Meals & Entertainment", "Department": "Department specific", "Class": "Region Specific", "ItemFlag": "M&E entertainment", "Entity": "MC" }
     ];
 
@@ -145,6 +159,7 @@
           <p><strong>Item:</strong> ${item.ItemFlag || ''}</p>
           <p><strong>Entity:</strong> ${item.Entity || ''}</p>
           ${item.Memo ? `<p class="memo"><strong>Memo:</strong> ${item.Memo}</p>` : ""}
+          ${item.Note ? `<p class="note"><strong>Note:</strong> ${item.Note}</p>` : ""}
         `;
         container.appendChild(div);
       });
