@@ -483,6 +483,17 @@ const codingLibrary = [
     "Memo": "Invoice # 000 : Housekeeping check out cleans m/dd/yy-m/dd/yy",
     "Visibility": "Both"
   },
+   {
+    "Item": "HSK-MC (3rd Party)",
+    "GLNumber": 7850,
+    "GLName": "HSKP Service Charge",
+    "Department": "Property Management - Prop. Service G&A > Housekeeping",
+    "Class": "Region Specific",
+    "ItemFlag": "No",
+    "Entity": "BTO",
+    "Memo": "Invoice # 000 : Housekeeping check out cleans m/dd/yy-m/dd/yy",
+    "Visibility": "Both"
+  },
   {
     "Item": "Portable AC",
     "GLNumber": 7880,
