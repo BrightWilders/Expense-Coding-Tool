@@ -473,7 +473,7 @@ const codingLibrary = [
     "Visibility": "Both"
   },
   {
-    "Item": "HSK-MC (3rd Party)",
+    "Item": "HSK (3rd Party)",
     "GLNumber": 7701,
     "GLName": "HSKP Service Charge",
     "Department": "Property Management - Prop. Service G&A > Housekeeping",
@@ -484,9 +484,9 @@ const codingLibrary = [
     "Visibility": "Both"
   },
    {
-    "Item": "HSK-MC (3rd Party)",
+    "Item": "HSK (3rd Party)",
     "GLNumber": 7850,
-    "GLName": "HSKP Service Charge",
+    "GLName": "Outside Services",
     "Department": "Property Management - Prop. Service G&A > Housekeeping",
     "Class": "Region Specific",
     "ItemFlag": "No",
