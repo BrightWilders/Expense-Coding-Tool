@@ -208,7 +208,7 @@ const codingLibrary = [
     "Department": "Market Ops - Core Operations",
     "Class": "Unit Specific",
     "ItemFlag": "No",
-    "Entity": "BTO (Do not use if OW)",
+    "Entity": "KHE, Hotel Cabana, Gemma, CMI, Beachside / SH5 (Do not use if OW)",
     "Memo": "Guest Relations - Res #",
     "Visibility": "Both"
   },
