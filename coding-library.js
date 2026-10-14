@@ -349,7 +349,7 @@ const codingLibrary = [
   {
     "Item": "Photos",
     "GLNumber": 7589,
-    "GLName": "Photography & Staging Expenses",
+    "GLName": "Photography/ Videography",
     "Department": "Sales & Marketing - Corp",
     "Class": "Unit Specific",
     "ItemFlag": "Photos - Reshoots",
@@ -359,7 +359,7 @@ const codingLibrary = [
   {
     "Item": "Photos",
     "GLNumber": 7589,
-    "GLName": "Photography & Staging Expenses",
+    "GLName": "Photography/ Videography",
     "Department": "Sales & Marketing - Corp",
     "Class": "Unit Specific",
     "ItemFlag": "Photos - Onboarding",
